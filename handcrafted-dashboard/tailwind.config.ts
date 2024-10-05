@@ -11,6 +11,10 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+         primary : '#36151E',
+         tertiary: '#8499B1',
+        //  secondary : '#593F62',
+        //  trinary : '#8499B1'
       },
     },
   },
