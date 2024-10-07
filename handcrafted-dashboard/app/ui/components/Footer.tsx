@@ -9,8 +9,8 @@ export default function Footer(){
             <div className="flex flex-col p-14 ">
               <p>&copy; 2024 Group 6</p>
               <ul>
-                <li>Denis Pousard</li>
-                <li>Nomore</li>
+                <li>Denis Poussard</li>
+                <li>Nomore Tawanda Zhanje</li>
                 <li>Alvaro Godoy</li>
                 <li>Anastasiia Shvydko</li>
               </ul>
