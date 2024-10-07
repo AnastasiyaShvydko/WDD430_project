@@ -5,6 +5,16 @@ export default function Footer(){
 
     return(
         <footer className="min-h-40 bg-indigo-500">
+          <div className="grid grid-cols-2">
+            <div className="flex flex-col p-14 ">
+              <p>&copy; 2024 Group 6</p>
+              <ul>
+                <li>Denis Pousard</li>
+                <li>Nomore</li>
+                <li>Alvaro Godoy</li>
+                <li>Anastasiia Shvydko</li>
+              </ul>
+            </div>
           {/* <div className="">
             <div className="">
               <div className="">
@@ -34,6 +44,7 @@ export default function Footer(){
             <a className="grey-text text-lighten-4 right" href="#!">More Links</a>
             </div> */}
           {/* </div> */}
+          </div>
         </footer>
     )
 }
