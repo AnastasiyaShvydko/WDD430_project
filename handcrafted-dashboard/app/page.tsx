@@ -1,9 +1,17 @@
 import Image from "next/image";
+import Head from "next/head";
+import {oswald} from "@/app/fonts/fonts"
 
 export default function Home() {
   return (
     <>
     <main className="min-h-screen flex flex-col p-6 items-center">
+      <div>
+        <Head>hehhehe</Head>
+        <h1 className={`${oswald.className} font-semibold text-6xl` }>
+          <span>Crafted with Love,</span><br/> Delivered with Care
+        </h1>
+      </div>
     <div>
        <Image
           className=""

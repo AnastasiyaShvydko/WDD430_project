@@ -32,7 +32,7 @@ export default function Navbar() {
             </div>
             <div className="flex flex-1 items-center justify-space-between sm:items-stretch sm:justify-space-between">
               <div className="flex flex-shrink-0 items-center">
-                <img className="h-8 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"/>
+                <img className="h-8 w-auto" src="/logo.png" alt="Your Company"/>
               </div>
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
