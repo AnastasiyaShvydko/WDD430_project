@@ -1,7 +1,7 @@
 //Geting Promise
 'use server';
 
-import { revalidateTag } from 'next/cache';
+//import { revalidateTag } from 'next/cache';
 //import types
 import{Sellers} from './defenition';
 import { sql } from '@vercel/postgres';
@@ -13,7 +13,7 @@ export async function fetchSellers() {
   
       console.log('Fetching users data...');
       await new Promise((resolve) => setTimeout(resolve, 3000));
-      revalidateTag('sellers')
+      //revalidateTag('sellers')
   
       const data = await sql<Sellers>`SELECT * FROM sellers`;
       
