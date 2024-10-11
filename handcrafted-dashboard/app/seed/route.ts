@@ -1,37 +1,37 @@
 //import bcrypt from 'bcrypt';
 import { db } from '@vercel/postgres';
 //import { sellers, products} from '@/app/lib/placeholder-data';
-
+import { sellers} from '@/app/lib/placeholder-data';
 
 const client = await db.connect();
 
 
-// async function seedSellers() {
-//     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+async function seedSellers() {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
   
-//     await client.sql`
-//       CREATE TABLE IF NOT EXISTS sellers (
-//         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-//         name VARCHAR(255) NOT NULL,
-//         email VARCHAR(255) NOT NULL,
-//         description TEXT NOT NULL,
-//         image_url VARCHAR(255) NOT NULL,
-//         seller_code INT NOT NULL
-//       );
-//     `;
+    await client.sql`
+      CREATE TABLE IF NOT EXISTS sellers (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL,
+        description TEXT NOT NULL,
+        image_url VARCHAR(255) NOT NULL,
+        seller_code INT NOT NULL
+      );
+    `;
   
-//     const insertedSellers = await Promise.all(
-//         sellers.map(
-//         (seller) => client.sql`
-//           INSERT INTO sellers (id, name, email,description, image_url, seller_code)
-//           VALUES (${seller.id}, ${seller.name}, ${seller.email},${seller.description}, ${seller.image_url}, ${seller.seller_code})
-//           ON CONFLICT (id) DO NOTHING;
-//         `,
-//       ),
-//     );
+    const insertedSellers = await Promise.all(
+        sellers.map(
+        (seller) => client.sql`
+          INSERT INTO sellers (id, name, email,description, image_url, seller_code)
+          VALUES (${seller.id}, ${seller.name}, ${seller.email},${seller.description}, ${seller.image_url}, ${seller.seller_code})
+          ON CONFLICT (id) DO NOTHING;
+        `,
+      ),
+    );
   
-  //   return insertedSellers;
-  // }
+    return insertedSellers;
+  }
 
 
   // async function seedProducts() {
@@ -88,7 +88,7 @@ const client = await db.connect();
     // });
     try {
       await client.sql`BEGIN`;
-      //await seedSellers();
+      await seedSellers();
       //await seedProducts();
       //await dropSellers();
       //await dropProducts()
