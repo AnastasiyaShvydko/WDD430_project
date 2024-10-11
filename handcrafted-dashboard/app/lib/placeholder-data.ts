@@ -63,41 +63,46 @@ const sellers = [
         image_url: '/sellers/user5.png',
     },
 ]
-//Nomore, I added seller_code so it will bethe foreing key which you need to use 
+//Nomore, I added seller_code so it will be the foreing key which you need to use 
 //to connect those to tables. Each product in your table should have seller_code which is relaited 
 //with the seller.Also I forgot in the defenition.ts file you need to create type Product according
 //to the attributs you are gonna have in products table.
 
-const items = [
+const products = [
     {
         title: "vase",
         price: 50,
-        crafter: "User5",
+        description:'gjhgjkdghhgj',
+        seller_code: 4,
         image_url: '/items/pic1.png'
     },
     {
         title: "vase",
         price: 50,
-        crafter: "User5",
+        description:'gjhgjkdghhgj',
+        seller_code: 1,
         image_url: '/items/pic2.png'
     },
     {
         title: "vase",
         price: 50,
-        crafter: "User5",
+        description:'gjhgjkdghhgj',
+        seller_code: 2,
         image_url: '/items/pic3.png'
     },
     {
         title: "vase",
         price: 50,
-        crafter: "User5",
+        description:'gjhgjkdghhgj',
+        seller_code: 3,
         image_url: '/items/pic4.png'
     },
     {
         title: "vase",
         price: 50,
-        crafter: "User5",
+        description:'gjhgjkdghhgj',
+        seller_code: 1,
         image_url: '/items/pic5.png'
     },
 ]
- export {sellers, items}
+ export {sellers, products}
