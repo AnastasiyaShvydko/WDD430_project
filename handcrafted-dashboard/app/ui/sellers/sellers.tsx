@@ -12,9 +12,9 @@ return <>
         console.log(seller.image_url)
         return (
             <>
-            <div key={seller.id}  className="items-center bg-indigo-200  h-[350px] w-screen flex flex-row" >
+            <div key={seller.id}  className=" bg-indigo-200  h-[350px] w-screen grid grid-cols-4 gap-4 items-center" >
                 
-                    <div>
+                    <div className="col-span-2">
                         <Image
                             src={seller.image_url}
                             alt={`${seller.name}'s profile picture`}
@@ -23,13 +23,14 @@ return <>
                             height={300} 
                         />
                     </div>
-                    <div>
+                    <div className="col-span-2">
                         <p className="text-xl">{seller.name}</p>
                         <p>{seller.description}</p>
-                        
+                        <p>{seller.seller_code}</p>
+                        <div><Link href={`/handcraft/catalog/${seller.seller_code}/products`} className="underline">See gallery</Link></div>
                         
                     </div>
-                    <div><Link href={'#'}>See gallery</Link></div>
+                    
                 </div>
             </>
         )
