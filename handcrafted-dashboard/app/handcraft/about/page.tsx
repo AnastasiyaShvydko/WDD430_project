@@ -19,8 +19,8 @@ export default function About() {
 
           <p>
           Our mission is to connect you with unique designers whose products reflect quality,
-            creativity and authenticity. Whether you're looking for something unique for yourself or a special gift,
-            we've got just what you're looking for.
+            creativity and authenticity. Whether you are looking for something unique for yourself or a special gift,
+            we have got just what you are looking for.
           </p>
 
           <h2>Mission Statement</h2>
