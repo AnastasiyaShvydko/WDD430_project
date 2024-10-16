@@ -68,41 +68,50 @@ const sellers = [
 //with the seller.Also I forgot in the defenition.ts file you need to create type Product according
 //to the attributs you are gonna have in products table.
 
-const products = [
+const catalog = [
     {
-        title: "vase",
-        price: 50,
-        description:'gjhgjkdghhgj',
-        seller_code: 4,
-        image_url: '/items/pic1.png'
-    },
-    {
-        title: "vase",
-        price: 50,
-        description:'gjhgjkdghhgj',
+        title: "Pottery and Ceramics",
+        price: 500,
+	    motto: "Shape the Earth and tell stories through clay.",
+        description:"In this category, explore the timeless art of crafting with gifted hands, transforming humble clay into exquisite 	pottery and ceramics. From delicate vases to intricate sculptures, discover the magic of molding, glazing, and firing. 		Each creation carries the artisan`s touch, blending creativity with nature’s elements.",
         seller_code: 1,
-        image_url: '/items/pic2.png'
+        image_url: '/items/cata1.png'
     },
     {
-        title: "vase",
-        price: 50,
-        description:'gjhgjkdghhgj',
+        title: "Weaving",
+        price: 300,
+	    motto:"Threads of tradition woven into every piece.",
+        description: "Weaving is more than just fabric; it's storytelling through threads.\
+         Whether you're crafting vibrant tapestries, \
+        intricate baskets, or durable rugs, this art\
+        form reflects cultures from around the world. Each weave connects past \
+        and creating a tapestry of color, texture, and history.",
         seller_code: 2,
-        image_url: '/items/pic3.png'
+        image_url: '/items/cata2.png'
     },
     {
-        title: "vase",
-        price: 50,
-        description:'gjhgjkdghhgj',
+        title: "Knitting",
+        price: 200,
+	    motto:"Loops of love in every stitch.",
+        description:"Knitting transforms yarn into masterpieces—whether cozy scarves, warm blankets, or intricate sweaters. Perfect 		for creating both practical and decorative items, every knit and purl stitch offers a chance to express creativity and 		spread warmth, one thread at a time.",
         seller_code: 3,
-        image_url: '/items/pic4.png'
+        image_url: '/items/cata3.png'
     },
     {
-        title: "vase",
-        price: 50,
-        description:'gjhgjkdghhgj',
-        seller_code: 1,
-        image_url: '/items/pic5.png'
+        title: "Wood Carving",
+        price: 1000,
+	    motto:"Breathe life into wood and sculpt your imagination",
+        description:"Wood carving combines precision, patience, and passion. From delicate figurines to bold sculptures and functional furniture, artisans use their tools to reveal hidden forms within each piece of wood. This craft bridges 			        nature and creativity, producing pieces with character and soul.",
+        seller_code: 4,
+        image_url: '/items/cata4.png'
     },
+    {
+        title: "Beadwork",
+        price: 300,
+	    motto: "Tiny treasures strung into wearable art.",
+        description:"Beadwork is a mesmerizing art form that transforms small beads into dazzling jewelry, intricate patterns, and cultural expressions. Whether used for fashion, tradition, or storytelling, each bead carries meaning and beauty, making every piece a unique work of art.",
+        seller_code: 5,
+        image_url: '/items/cata5.png'
+}
 ]
- export {sellers, products}
+ export {sellers, catalog}

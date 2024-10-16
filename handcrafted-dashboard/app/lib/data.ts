@@ -1,10 +1,10 @@
 //Geting Promise
 'use server';
 
-//import { revalidateTag } from 'next/cache';
+import { revalidateTag } from 'next/cache';
 //import types
 import { Sellers,
-        ProductsTable
+        CatalogTable
         } from './defenition';
 import { sql } from '@vercel/postgres';
 
@@ -15,7 +15,7 @@ export async function fetchSellers() {
   
       console.log('Fetching users data...');
       await new Promise((resolve) => setTimeout(resolve, 3000));
-      //revalidateTag('sellers')
+      revalidateTag('sellers')
   
       const data = await sql<Sellers>`SELECT * FROM sellers`;
       
@@ -24,18 +24,18 @@ export async function fetchSellers() {
       return data.rows;
     } catch (error) {
       console.error('Database Error:', error);
-      throw new Error('Failed to fetch revenue data.');
+      throw new Error('Failed to fetch sellers data.');
     }
   }
 
-  export async function fetchProductsBySellerCode(seller_code: number) {
+  export async function fetchCatalogBySellerCode(seller_code: number) {
     try {
       //revalidateTag('products')
       console.log(seller_code);
-      const data = await sql<ProductsTable>`
+      const data = await sql<CatalogTable>`
       
-        SELECT * FROM products
-        WHERE products.seller_code = ${seller_code};
+        SELECT * FROM catalog
+        WHERE catalog.seller_code = ${seller_code};
       `;
   
       // const productsBySellerId = data.rows.map((product) => ({
@@ -47,6 +47,28 @@ export async function fetchSellers() {
       return data.rows;
     } catch (error) {
       console.error('Database Error:', error);
-      throw new Error('Failed to fetch invoice.');
+      throw new Error('Failed to fetch catalogBySellerCode.');
+    }
+  }
+
+  export async function fetchCatalog() {
+    try {
+      //revalidateTag('products')
+      
+      const data = await sql<CatalogTable>`
+      
+        SELECT * FROM catalog;
+      `;
+  
+      // const productsBySellerId = data.rows.map((product) => ({
+      //   ...product,
+      //   // Convert amount from cents to dollars
+        
+      // }));
+  
+      return data.rows;
+    } catch (error) {
+      console.error('Database Error:', error);
+      throw new Error('Failed to fetch catalog.');
     }
   }

@@ -1,7 +1,7 @@
 //import bcrypt from 'bcrypt';
 import { db } from '@vercel/postgres';
 //import { sellers, products} from '@/app/lib/placeholder-data';
-import { sellers} from '@/app/lib/placeholder-data';
+import { sellers, catalog} from '@/app/lib/placeholder-data';
 
 const client = await db.connect();
 
@@ -34,39 +34,34 @@ async function seedSellers() {
   }
 
 
-  // async function seedProducts() {
-  //   await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
-  
-  //   await client.sql`
-  //     CREATE TABLE IF NOT EXISTS products (
-  //       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-  //       title VARCHAR(255) NOT NULL,
-  //       price INT NOT NULL,
-  //       description TEXT NOT NULL,
-  //       seller_code INT NOT NULL,
-  //       image_url VARCHAR(255) NOT NULL
-        
-  //     );
-  //   `;
-
-  //   // title: "vase",
-  //   // price: 50,
-  //   // description:'gjhgjkdghhgj',
-  //   // seller_code: 3,
-  //   // image_url: '/items/pic4.png'
-  
-  //   const insertedProducts = await Promise.all(
-  //       products.map(
-  //       (product) => client.sql`
-  //         INSERT INTO products ( title, price,description, seller_code, image_url)
-  //         VALUES ( ${product.title}, ${product.price},${product.description}, ${product.seller_code}, ${product.image_url})
-  //         ON CONFLICT (id) DO NOTHING;
-  //       `,
-  //     ),
-  //   );
-  
-  //   return insertedProducts;
-  // }
+  async function seedCatalog() {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+ 
+  await client.sql`
+      CREATE TABLE IF NOT EXISTS catalog (
+      id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+      title VARCHAR(255) NOT NULL,
+      price INT NOT NULL,
+      motto TEXT NOT NULL,
+      description TEXT NOT NULL,
+      seller_code INT NOT NULL,
+      image_url VARCHAR(255) NOT NULL
+       
+    );
+   `;
+ 
+    const insertedCatalog = await Promise.all(
+        catalog.map(
+        (product) => client.sql`
+       INSERT INTO catalog ( title, price, motto, description, seller_code, image_url)
+        VALUES ( ${product.title}, ${product.price},${product.motto}, ${product.description}, ${product.seller_code}, ${product.image_url})
+         ON CONFLICT (id) DO NOTHING;
+       `,
+      ),
+    );
+ 
+  return insertedCatalog;
+  }
 
   // async function dropSellers() {
   //   await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
@@ -89,7 +84,7 @@ async function seedSellers() {
     try {
       await client.sql`BEGIN`;
       await seedSellers();
-      //await seedProducts();
+      await seedCatalog();
       //await dropSellers();
       //await dropProducts()
       await client.sql`COMMIT`;
