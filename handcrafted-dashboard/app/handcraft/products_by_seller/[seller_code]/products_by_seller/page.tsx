@@ -1,4 +1,4 @@
-import ProductsDataBySellerCode from '@/app/ui/sellers/sellers_products'
+import ProductsDataBySellerCode from '@/app/ui/products_by_seller/products_by_seller'
 
 
 

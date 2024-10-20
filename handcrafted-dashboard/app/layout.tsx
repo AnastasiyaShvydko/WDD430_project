@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from '@/app/ui/components/Navbar'
 import Footer from "./ui/components/Footer";
+import SearchBar from "./ui/components/SearchBar";
 
 //export const experimental_ppr = true;
 
@@ -32,7 +33,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-none min-h-screen`}
      >
+    
         <Navbar/>
+        <SearchBar/>
         {children}
         <Footer/>
       </body>

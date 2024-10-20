@@ -1,10 +1,11 @@
-import { fetchProductsBySellerCode } from "@/app/lib/data"
+import { fetchProductById} from "@/app/lib/data"
 import Image from 'next/image';
+import Form from "../form";
+//import Link from "next/link";
 
 
-
-export default async function ProductsDataBySellerCode({ seller_code }: { seller_code: number }) {
-const data = await fetchProductsBySellerCode(seller_code);
+export default async function ProductDataById({ product_id }: { product_id: string }) {
+const data = await fetchProductById(product_id);
 console.log(data);
 return <>
    <div className="flex flex-col  gap-4 ">
@@ -27,7 +28,10 @@ return <>
                         <p className="text-xl">{product.title}</p>
                         <p>{product.description}</p>
                         
+                        <div><Form product_id={product.id}/></div>
+                        
                     </div>
+                    
                     
                 </div>
             </>

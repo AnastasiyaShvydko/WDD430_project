@@ -28,3 +28,38 @@
     text-wrap: balance;
   } */
 /* } */
+
+input[type="radio"] {
+	display: none;
+	position: relative;
+	caret-color: rgba(0, 0, 0, 0);
+}
+.rate {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: left;
+	margin-bottom: 10px;
+}
+
+.rate > label {
+	color: gold;
+	width: 30px;
+	height: 30px;
+	font-size: 2rem;
+	margin-left: 5px;
+	display: flex;
+	align-items: center;
+	caret-color: rgba(0, 0, 0, 0); /* remove blinking cursor*/
+}
+
+.rate > label:hover {
+	color: #e0a038;
+}
+
+.rate > label::before {
+	content: "\2606";
+}
+
+.rate input:checked ~ label::before {
+	content: "\2605";
+}
