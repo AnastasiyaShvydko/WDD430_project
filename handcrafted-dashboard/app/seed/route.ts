@@ -7,32 +7,32 @@ import { sellers, catalog, products} from '@/app/lib/placeholder-data';
 const client = await db.connect();
 
 
-async function seedSellers() {
-    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+// async function seedSellers() {
+//     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
   
-    await client.sql`
-      CREATE TABLE IF NOT EXISTS sellers (
-        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-        name VARCHAR(255) NOT NULL,
-        email VARCHAR(255) NOT NULL,
-        description TEXT NOT NULL,
-        image_url VARCHAR(255) NOT NULL,
-        seller_code INT NOT NULL
-      );
-    `;
+//     await client.sql`
+//       CREATE TABLE IF NOT EXISTS sellers (
+//         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+//         name VARCHAR(255) NOT NULL,
+//         email VARCHAR(255) NOT NULL,
+//         description TEXT NOT NULL,
+//         image_url VARCHAR(255) NOT NULL,
+//         seller_code INT NOT NULL
+//       );
+//     `;
   
-    const insertedSellers = await Promise.all(
-        sellers.map(
-        (seller) => client.sql`
-          INSERT INTO sellers (id, name, email,description, image_url, seller_code)
-          VALUES (${seller.id}, ${seller.name}, ${seller.email},${seller.description}, ${seller.image_url}, ${seller.seller_code})
-          ON CONFLICT (id) DO NOTHING;
-        `,
-      ),
-    );
+//     const insertedSellers = await Promise.all(
+//         sellers.map(
+//         (seller) => client.sql`
+//           INSERT INTO sellers (id, name, email,description, image_url, seller_code)
+//           VALUES (${seller.id}, ${seller.name}, ${seller.email},${seller.description}, ${seller.image_url}, ${seller.seller_code})
+//           ON CONFLICT (id) DO NOTHING;
+//         `,
+//       ),
+//     );
   
-    return insertedSellers;
-  }
+//     return insertedSellers;
+//   }
 
 
   async function seedProducts() {
@@ -97,35 +97,35 @@ async function seedSellers() {
   //   DROP TABLE sellers;`
   // }
 
-  async function dropProducts() {
-    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
-    await client.sql`
-    DROP TABLE products;`
-  }
+  // async function dropProducts() {
+  //   await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+  //   await client.sql`
+  //   DROP TABLE products;`
+  // }
 
-  async function dropCatalog() {
-    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
-    await client.sql`
-    DROP TABLE catalog;`
-  }
+  // async function dropCatalog() {
+  //   await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+  //   await client.sql`
+  //   DROP TABLE catalog;`
+  // }
 
-  async function CreateReviews(){
+  // async function CreateReviews(){
 
   
-  await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+  // await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
 
-    await client.sql`
-      CREATE TABLE IF NOT EXISTS reviews (
-        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-        name VARCHAR(255) NOT NULL,
-        email VARCHAR(255) NOT NULL,
-        rate INT NOT NULL,
-        rate_message TEXT NOT NULL,
-        product_id VARCHAR(255) NOT NULL,
-        date DATE NOT NULL
-      );
-    `;
-  }
+  //   await client.sql`
+  //     CREATE TABLE IF NOT EXISTS reviews (
+  //       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  //       name VARCHAR(255) NOT NULL,
+  //       email VARCHAR(255) NOT NULL,
+  //       rate INT NOT NULL,
+  //       rate_message TEXT NOT NULL,
+  //       product_id VARCHAR(255) NOT NULL,
+  //       date DATE NOT NULL
+  //     );
+  //   `;
+  // }
 
   export async function GET() {
     // return Response.json({
