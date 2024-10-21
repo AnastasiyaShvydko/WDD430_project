@@ -2,12 +2,12 @@
 
 //import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState,Suspense  } from 'react';
 import { fetchProductByQuery } from '../lib/data';
 import {ProductsTable} from '@/app/lib/defenition'
 
 
-const SearchPage = () => {
+const SearchResults = () => {
     const searchParams = useSearchParams();
     const title = searchParams.get('title'); 
     const priceMin = searchParams.get('priceMin'); 
@@ -34,7 +34,7 @@ const SearchPage = () => {
                 <div>
                     <h1>Search Results for: {title} {results.length}</h1>
                         {results.map((result)=> (
-                            <div>
+                            <div key={result.id}>
                             <p>{result.title}</p>
                             <p>{result.price}</p>
                             </div>)
@@ -49,4 +49,11 @@ const SearchPage = () => {
     
 };
 
-export default SearchPage;
+export default function SearchPage() {
+    return (
+      <Suspense fallback={<div>Loading search page...</div>}>
+        <SearchResults />
+      </Suspense>
+    );
+  }
+
