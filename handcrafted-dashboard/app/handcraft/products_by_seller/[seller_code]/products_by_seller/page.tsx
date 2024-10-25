@@ -1,4 +1,4 @@
-import ProductsDataBySellerCode from '@/app/ui/sellers/sellers_products'
+import ProductsDataBySellerCode from '@/app/ui/products_by_seller/products_by_seller'
 
 
 
@@ -10,8 +10,7 @@ export default async function GetProductsBySellerCode({ params }: { params: { se
     //const number = 1;
     return (
     <>
-    <p>This is Sellers page</p>
-    <div><ProductsDataBySellerCode seller_code={seller_code}/></div>
+    <div className='results-container'><ProductsDataBySellerCode seller_code={seller_code}/></div>
     
     {/* //<div><Suspense fallback={<Loading/>}><SellersData /></Suspense></div> */}
     </>

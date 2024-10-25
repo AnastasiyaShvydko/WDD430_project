@@ -1,12 +1,17 @@
 //Geting Promise
 'use server';
 
-//import { revalidateTag } from 'next/cache';
+import { revalidateTag } from 'next/cache';
 //import types
 import { Sellers,
-        ProductsTable
+        CatalogTable,
+        ProductsTable,
+        ProductByIdTable,
+        User
         } from './defenition';
 import { sql } from '@vercel/postgres';
+
+
 
 export async function fetchSellers() {
     try {
@@ -24,7 +29,7 @@ export async function fetchSellers() {
       return data.rows;
     } catch (error) {
       console.error('Database Error:', error);
-      throw new Error('Failed to fetch revenue data.');
+      throw new Error('Failed to fetch sellers data.');
     }
   }
 
@@ -47,6 +52,109 @@ export async function fetchSellers() {
       return data.rows;
     } catch (error) {
       console.error('Database Error:', error);
-      throw new Error('Failed to fetch invoice.');
+      throw new Error('Failed to fetch catalogBySellerCode.');
+    }
+  }
+
+  export async function fetchProductByQuery(title: string, priceMin: string, priceMax: string) {
+    try {
+      //revalidateTag('products')
+      console.log(`HIIIII${title}`);
+      const title_value = `%${title}%`;
+      const data = await sql<ProductsTable>`
+
+        SELECT * FROM products
+        WHERE products.title ILIKE ${title_value}
+        AND products.price BETWEEN ${priceMin} AND ${priceMax};
+      `;
+  
+      // const productsBySellerId = data.rows.map((product) => ({
+      //   ...product,
+      //   // Convert amount from cents to dollars
+        
+      // }));
+  
+      return data.rows;
+    } catch (error) {
+      console.error('Database Error:', error);
+      throw new Error('Failed to fetch productByQuery.');
+    }
+  }
+
+  export async function fetchCatalog() {
+    try {
+      //revalidateTag('products')
+      
+      const data = await sql<CatalogTable>`
+      
+        SELECT * FROM catalog;
+      `;
+  
+      // const productsBySellerId = data.rows.map((product) => ({
+      //   ...product,
+      //   // Convert amount from cents to dollars
+        
+      // }));
+  
+      return data.rows;
+    } catch (error) {
+      console.error('Database Error:', error);
+      throw new Error('Failed to fetch catalog.');
+    }
+  }
+
+  export async function fetchProductsByCategoryCode(category_code: number) {
+    try {
+      //revalidateTag('products')
+      console.log(category_code);
+      const data = await sql<ProductsTable>`
+      
+        SELECT * FROM products
+        WHERE products.category_code = ${category_code};
+      `;
+  
+      // const productsBySellerId = data.rows.map((product) => ({
+      //   ...product,
+      //   // Convert amount from cents to dollars
+        
+      // }));
+  
+      return data.rows;
+    } catch (error) {
+      console.error('Database Error:', error);
+      throw new Error('Failed to fetch products.');
+    }
+  }
+
+  export async function fetchProductById(product_id: string) {
+    try {
+      //revalidateTag('products')
+      console.log(product_id);
+      const data = await sql<ProductByIdTable>`
+      
+        SELECT * FROM products
+        WHERE products.id = ${product_id};
+      `;
+  
+      // const productsBySellerId = data.rows.map((product) => ({
+      //   ...product,
+      //   // Convert amount from cents to dollars
+        
+      // }));
+  
+      return data.rows;
+    } catch (error) {
+      console.error('Database Error:', error);
+      throw new Error('Failed to fetch productsById.');
+    }
+  }
+
+  export async function getUser(email: string) {
+    try {
+      const user = await sql`SELECT * FROM users WHERE email=${email}`;
+      return user.rows[0] as User;
+    } catch (error) {
+      console.error('Failed to fetch user:', error);
+      throw new Error('Failed to fetch user.');
     }
   }
