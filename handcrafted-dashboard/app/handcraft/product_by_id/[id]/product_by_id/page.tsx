@@ -11,7 +11,7 @@ export default async function GetProductDataById({ params }: { params: { id: str
     return (
     <>
     {/* <p>This is ONe Product page</p> */}
-    <div><ProductDataById product_id={id}/></div>
+    <div className='results-container'><ProductDataById product_id={id}/></div>
     
     {/* //<div><Suspense fallback={<Loading/>}><SellersData /></Suspense></div> */}
     </>

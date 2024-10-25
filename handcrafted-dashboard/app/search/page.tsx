@@ -1,10 +1,12 @@
 'use client'; 
 
 //import { useRouter } from 'next/navigation'
+import './style.css';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState,Suspense  } from 'react';
 import { fetchProductByQuery } from '../lib/data';
 import {ProductsTable} from '@/app/lib/defenition'
+import ProductCard from '../ui/components/ProductCard';
 
 
 const SearchResults = () => {
@@ -31,13 +33,15 @@ const SearchResults = () => {
      }}fetchData()}, [title]); 
         return ( 
             <>
-                <div>
+                <div className='results-container'>
                     <h1>Search Results for: {title} {results.length}</h1>
                         {results.map((result)=> (
-                            <div key={result.id}>
-                            <p>{result.title}</p>
-                            <p>{result.price}</p>
-                            </div>)
+                           <ProductCard product={result}/>
+                            // <div key={result.id}>
+                            // <p>{result.title}</p>
+                            // <p>{result.price}</p>
+                            //</div>
+                            )
                             
                         
                         

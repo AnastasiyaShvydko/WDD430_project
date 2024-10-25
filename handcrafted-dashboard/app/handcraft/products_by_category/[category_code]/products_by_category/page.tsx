@@ -10,8 +10,7 @@ export default async function GetProductsDataByCategoryCode({ params }: { params
     //const number = 1;
     return (
     <>
-    <p>This is Sellers page</p>
-    <div><ProductsDataByCategoryCode category_code={category_code}/></div>
+    <div className='results-container'><ProductsDataByCategoryCode category_code={category_code}/></div>
     
     {/* //<div><Suspense fallback={<Loading/>}><SellersData /></Suspense></div> */}
     </>

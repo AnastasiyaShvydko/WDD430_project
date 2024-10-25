@@ -1,4 +1,5 @@
 import { fetchCatalog } from "@/app/lib/data"
+import { revalidateTag } from "next/cache";
 //import { revalidateTag } from "next/cache";
 import Image from 'next/image';
 import Link from "next/link";
@@ -6,6 +7,7 @@ import Link from "next/link";
 
 
 export default async function CatalogData() {
+    revalidateTag('catalog')
 
 const data = await fetchCatalog();
 

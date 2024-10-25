@@ -1,14 +1,17 @@
 //Geting Promise
 'use server';
 
-//import { revalidateTag } from 'next/cache';
+import { revalidateTag } from 'next/cache';
 //import types
 import { Sellers,
         CatalogTable,
         ProductsTable,
-        ProductByIdTable
+        ProductByIdTable,
+        User
         } from './defenition';
 import { sql } from '@vercel/postgres';
+
+
 
 export async function fetchSellers() {
     try {
@@ -143,5 +146,15 @@ export async function fetchSellers() {
     } catch (error) {
       console.error('Database Error:', error);
       throw new Error('Failed to fetch productsById.');
+    }
+  }
+
+  export async function getUser(email: string) {
+    try {
+      const user = await sql`SELECT * FROM users WHERE email=${email}`;
+      return user.rows[0] as User;
+    } catch (error) {
+      console.error('Failed to fetch user:', error);
+      throw new Error('Failed to fetch user.');
     }
   }

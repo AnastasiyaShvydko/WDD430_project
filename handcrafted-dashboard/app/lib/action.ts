@@ -4,8 +4,8 @@ import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath} from 'next/cache';
 import { redirect } from 'next/navigation';
-//import { signIn } from '@/auth';
-//import { AuthError } from 'next-auth';
+import { signIn } from '@/auth';
+import { AuthError } from 'next-auth';
 
 
 export type State = {
@@ -97,3 +97,69 @@ export async function createReview(prevState: State, formData: FormData) {
     revalidatePath(`/handcraft/product_by_id/${product_id}/product_by_id`);
     redirect(`/handcraft/product_by_id/${product_id}/product_by_id`);
 }
+
+export async function authenticate(
+  prevState: string | undefined,
+  formData: FormData,
+) {
+  try {
+    await signIn('credentials', formData);
+
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+          case 'CredentialsSignin':
+            return 'Invalid credentials.';
+          default:
+            return 'Something went wrong.';
+        }
+      }
+     
+      throw error;
+    }
+    
+  }
+
+  const FormProductSchema = z.object({
+    id: z.string(),
+    title: z.string(),
+    price: z.coerce
+      .number(),
+    description: z.string(),
+    seller_code: z.coerce
+    .number(),
+    category_code: z.coerce
+    .number(),
+    image_url: z.string(),
+  });
+
+
+const UpdateProduct = FormProductSchema.omit({id: true})
+
+
+
+  export async function updateProduct(  id: string, formData: FormData){
+    const { title, price, description,seller_code,category_code,image_url } = UpdateProduct.parse({
+      title: formData.get('title'),
+      price: formData.get('price'),
+      description: formData.get('description'),
+      seller_code: formData.get('seller_code'),
+      category_code: formData.get('category_code'),
+      image_url: formData.get('image_url'),
+    });
+    try {
+      await sql`
+          UPDATE products
+          SET title = ${title}, price = ${price}, description = ${description}, seller_code = ${seller_code},
+          category_code = ${category_code}, image_url = ${image_url}
+          WHERE id = ${id}
+        `;
+    } catch (error) {
+      return
+      // return { message: 'Database Error: Failed to Update Invoice.' };
+    }
+   
+    revalidatePath(`/handcraft/product_by_id/${id}/product_by_id`);
+    redirect(`/handcraft/product_by_id/${id}/product_by_id`);
+
+  }

@@ -232,4 +232,12 @@ const products =[ {
     image_url: "/items/cata5-3.png"
   }
 ]
- export {sellers, catalog, products}
+
+const users = [
+  {
+    name: 'User',
+    email: 'user@nextmail.com',
+    password: '123456',
+  }
+]
+ export {sellers, catalog, products, users}

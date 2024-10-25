@@ -1,6 +1,6 @@
 import Image from "next/image";
 //import Head from "next/head";
-import {oswald} from "@/app/fonts/fonts"
+import {oswald} from "@/app/ui/fonts/fonts"
 
 
 export default async function Home() {

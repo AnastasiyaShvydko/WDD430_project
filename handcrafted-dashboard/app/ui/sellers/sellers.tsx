@@ -1,8 +1,10 @@
 import { fetchSellers } from "@/app/lib/data"
+//import { revalidateTag } from "next/cache";
 import Image from 'next/image';
 import Link from "next/link";
  
 export default async function SellersData() {
+    //revalidateTag('sellers')
 const data = await fetchSellers();
 console.log(data);
 return <>

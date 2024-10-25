@@ -1,8 +1,30 @@
+
 import NavLinks from '@/app/ui/nav-links';
+import { PowerIcon } from '@heroicons/react/24/outline';
+import { auth,signOut,signIn } from '@/auth';
+
+
+//import { useState } from 'react';
+
+ 
+
+ // Initially signed in
+ 
+ 
+
+
 //import Link from 'next/link';
 //import styles from './Navbar.module.css'; // Optional: for styling
 
 export default function Navbar() {
+
+ 
+
+  // const [isSignedIn, setIsSignedIn] = useState(true); 
+  // const handleSignInOut = () => {
+  //   setIsSignedIn(!isSignedIn); // Toggle the sign-in state
+  // };
+
     return (
         <nav className="bg-tertiary">
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -32,7 +54,7 @@ export default function Navbar() {
             </div>
             <div className="flex flex-1 items-center justify-space-between sm:items-stretch sm:justify-space-between">
               <div className="flex flex-shrink-0 items-center">
-                <img className="h-8 w-auto" src="/logo.png" alt="Your Company"/>
+                <img className="h-8 w-auto" src="../logo.png" alt="Your Company"/>
               </div>
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
@@ -46,13 +68,38 @@ export default function Navbar() {
               </div>
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              <button type="button" className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                <span className="absolute -inset-1.5"></span>
-                <span className="sr-only">View notifications</span>
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
-                </svg>
-              </button>
+            <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block">
+        <form
+          action={async () => {
+            'use server';
+            console.log(auth())
+            await signOut();
+          }}>
+            
+            
+          <button className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
+            <PowerIcon className="w-6" />
+            <div className="hidden md:block">Sign Out</div>
+          </button>
+        </form>
+
+      {/* <form
+          action={async () => {
+            'use server';
+            await signOut();
+          }}
+        >
+      <button
+        onClick={handleSignInOut}
+        className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
+      >
+        <PowerIcon className="w-6" />
+        <div className="hidden md:block">
+          {isSignedIn ? 'Sign Out' : 'Sign In'}
+        </div>
+      </button>
+      </form>  */}
+      </div>
       
               {/* <!-- Profile dropdown --> */}
               {/* <div className="relative ml-3">
@@ -100,3 +147,70 @@ export default function Navbar() {
     );
 };
 
+
+
+// import { PowerIcon } from '@heroicons/react/24/outline';
+// import { useState } from 'react';
+// import NavLinks from '@/app/ui/nav-links'; // Assuming you have a NavLinks component
+// import { signOut } from '@/auth'; // Placeholder for your actual auth function
+ 
+// export default function Navbar() {
+//   const [isSignedIn, setIsSignedIn] = useState(true); // Assume true for now. Replace with actual auth state if needed.
+ 
+//   const handleSignInOut = () => {
+//     if (isSignedIn) {
+//       // Actual sign-out process (if connected with auth provider)
+//       signOut(); // Adjust this based on your auth provider
+//     }
+//     setIsSignedIn(!isSignedIn); // Toggle sign-in state
+//   };
+ 
+//   return (
+//     <nav className="bg-tertiary">
+//       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+//         <div className="relative flex h-16 items-center justify-between">
+//           {/* Logo and navigation */}
+//           <div className="flex flex-1 items-center justify-space-between sm:items-stretch sm:justify-space-between">
+//             <div className="flex flex-shrink-0 items-center">
+//               <img className="h-8 w-auto" src="../logo.png" alt="Your Company" />
+//             </div>
+//             <div className="hidden sm:ml-6 sm:block">
+//               <div className="flex space-x-4">
+//                 {/* Navigation Links */}
+//                 <NavLinks />
+//               </div>
+//             </div>
+//           </div>
+ 
+//           {/* Sign in/out button */}
+//           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+//             <form action={async () => { 'use server'; await signOut(); }} >
+//               <button
+//                 onClick={handleSignInOut}
+//                 className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
+//               >
+//                 <PowerIcon className="w-6" />
+//                 <div className="hidden md:block">
+//                   {isSignedIn ? 'Sign Out' : 'Sign In'}
+//                 </div>
+//               </button>
+//             </form>
+//           </div>
+//         </div>
+ 
+//         {/* Only show "Edit Page" when the user is signed in */}
+//         {isSignedIn ? (
+//           <div className="mt-4">
+//             <button className="px-4 py-2 bg-blue-500 text-white rounded-md">
+//               Edit Page
+//             </button>
+//           </div>
+//         ) : (
+//           <div className="mt-4 text-red-500">
+//             <p>You must be signed in to edit this page.</p>
+//           </div>
+//         )}
+//       </div>
+//     </nav>
+//   );
+// }

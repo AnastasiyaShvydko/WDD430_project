@@ -44,8 +44,7 @@ export default function Form({ product_id }: { product_id: string }){
             <textarea id="rate_message" name="rate_message" rows={4} required className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Your Message"></textarea>
         </div>
         <div className="mb-4">
-            <label htmlFor="product_id" className="block text-sm font-medium text-gray-700">Message</label>
-            <input id="product_id" name="product_id" required className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Your Message" value={product_id}/>
+            <input id="product_id" name="product_id" required className="hidden" placeholder="Your Message" value={product_id}/>
         </div>
 
         <button type="submit" className="w-full bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-700">Submit</button>
