@@ -29,14 +29,7 @@ export default function Form({ product_id }: { product_id: string }){
             <input type="radio" id="twostars" name="rate" value="2" required/><label htmlFor="twostars"></label>
             <input type="radio" id="onestar" name="rate" value="1" required/><label htmlFor="onestar"></label>
         </div>
-        <div id="customer-error" aria-live="polite" aria-atomic="true">
-        {state.errors?.rate &&
-          state.errors.rate.map((error: string) => (
-            <p className="mt-2 text-sm text-red-500" key={error}>
-              {error}
-            </p>
-          ))}
-      </div>
+      
         
 
         <div className="mb-4">
