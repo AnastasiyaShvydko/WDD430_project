@@ -60,7 +60,6 @@ export async function fetchSellers() {
   export async function fetchProductByQuery(title: string, priceMin: string, priceMax: string) {
     try {
       //revalidateTag('products')
-      console.log(`HIIIII${title}`);
       const title_value = `%${title}%`;
       const data = await sql<ProductsTable>`
 
@@ -79,6 +78,29 @@ export async function fetchSellers() {
     } catch (error) {
       console.error('Database Error:', error);
       throw new Error('Failed to fetch productByQuery.');
+    }
+  }
+
+  export async function fetchProductByQueryTitle(title: string) {
+    try {
+      //revalidateTag('products')
+      const title_value = `%${title}%`;
+      const data = await sql<ProductsTable>`
+
+        SELECT * FROM products
+        WHERE products.title ILIKE ${title_value};
+      `;
+  
+      // const productsBySellerId = data.rows.map((product) => ({
+      //   ...product,
+      //   // Convert amount from cents to dollars
+        
+      // }));
+  
+      return data.rows;
+    } catch (error) {
+      console.error('Database Error:', error);
+      throw new Error('Failed to fetch productByQueryTitle.');
     }
   }
 

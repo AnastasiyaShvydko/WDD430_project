@@ -4,7 +4,7 @@
 import './style.css';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState,Suspense  } from 'react';
-import { fetchProductByQuery } from '../lib/data';
+import { fetchProductByQuery ,fetchProductByQueryTitle} from '../lib/data';
 import {ProductsTable} from '@/app/lib/defenition'
 import ProductCard from '../ui/components/ProductCard';
 
@@ -26,11 +26,19 @@ const SearchResults = () => {
     //setResults(fetchData())
     useEffect( () => {
         async function fetchData() {
+          
         if (title&&priceMin&&priceMax) {
+          console.log('I search by name', title, priceMin, priceMax )
         const data = await fetchProductByQuery(title, priceMin, priceMax)
         setResults(data);
         console.log(results)
-     }}fetchData()}, [title]); 
+     }
+    else if(title&&!priceMin&&!priceMax){
+      console.log('I search by name', title)
+      const data = await fetchProductByQueryTitle(title)
+      setResults(data);
+
+    }}fetchData()}, [title]); 
         return ( 
             <>
                 <div className='results-container'>
