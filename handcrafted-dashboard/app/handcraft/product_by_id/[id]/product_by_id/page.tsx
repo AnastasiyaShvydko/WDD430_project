@@ -1,4 +1,5 @@
 import ProductDataById from '@/app/ui/product_by_id/product_by_id'
+import ReviewDataById from '@/app/ui/review_by_id/review_by_id';
 
 
 
@@ -12,6 +13,7 @@ export default async function GetProductDataById({ params }: { params: { id: str
     <>
     {/* <p>This is ONe Product page</p> */}
     <div className='results-container'><ProductDataById product_id={id}/></div>
+    <div className='results-container'><ReviewDataById product_id={id}/></div>
     
     {/* //<div><Suspense fallback={<Loading/>}><SellersData /></Suspense></div> */}
     </>

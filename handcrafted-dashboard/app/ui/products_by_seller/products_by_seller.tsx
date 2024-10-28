@@ -1,5 +1,5 @@
 import { fetchProductsBySellerCode } from '@/app/lib/data'
-//import { revalidateTag } from 'next/cache';
+import { revalidateTag } from 'next/cache';
 import Image from 'next/image';
 import Link from 'next/link';
 import ProductCard from '../components/ProductCard';
@@ -7,7 +7,7 @@ import ProductCard from '../components/ProductCard';
 
 
 export default async function ProductsDataBySellerCode({ seller_code }: { seller_code: number }) {
- //   revalidateTag('products')
+  // revalidateTag('products')
 const data = await fetchProductsBySellerCode(seller_code);
 console.log(data);
 return <>

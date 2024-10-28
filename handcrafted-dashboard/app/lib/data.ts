@@ -7,7 +7,8 @@ import { Sellers,
         CatalogTable,
         ProductsTable,
         ProductByIdTable,
-        User
+        User,
+        Review
         } from './defenition';
 import { sql } from '@vercel/postgres';
 
@@ -156,5 +157,28 @@ export async function fetchSellers() {
     } catch (error) {
       console.error('Failed to fetch user:', error);
       throw new Error('Failed to fetch user.');
+    }
+  }
+
+  export async function fetchReviewById(product_id: string) {
+    try {
+      //revalidateTag('products')
+      console.log(product_id);
+      const data = await sql<Review>`
+      
+        SELECT * FROM reviews
+        WHERE reviews.product_id = ${product_id};
+      `;
+  
+      // const productsBySellerId = data.rows.map((product) => ({
+      //   ...product,
+      //   // Convert amount from cents to dollars
+        
+      // }));
+  
+      return data.rows;
+    } catch (error) {
+      console.error('Database Error:', error);
+      throw new Error('Failed to fetch productsById.');
     }
   }

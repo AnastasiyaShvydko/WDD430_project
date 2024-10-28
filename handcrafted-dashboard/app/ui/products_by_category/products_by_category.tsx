@@ -1,5 +1,5 @@
 import { fetchProductsByCategoryCode} from "@/app/lib/data"
-//import { revalidateTag } from "next/cache";
+import { revalidateTag } from "next/cache";
 import Image from 'next/image';
 import Link from "next/link";
 import ProductCard from "../components/ProductCard";
@@ -8,7 +8,7 @@ import ProductCard from "../components/ProductCard";
 
 
 export default async function ProductsDataByCategoryCode({ category_code }: { category_code: number }) {
- //   revalidateTag('products')
+   //revalidateTag('products')
 const data = await fetchProductsByCategoryCode(category_code);
 console.log(data);
 return <>

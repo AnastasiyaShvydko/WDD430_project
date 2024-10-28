@@ -26,7 +26,6 @@ return <>
                     <div className="col-span-2">
                         <p className="text-xl">{seller.name}</p>
                         <p>{seller.description}</p>
-                        <p>{seller.seller_code}</p>
                         <div><Link href={`/handcraft/products_by_seller/${seller.seller_code}/products_by_seller`} className="underline">See gallery</Link></div>
                         
                     </div>

@@ -2,7 +2,9 @@ import { fetchProductById} from "@/app/lib/data"
 import Image from 'next/image';
 import Form from "../form";
 import Link from "next/link";
-///import { revalidateTag } from "next/cache";
+import { revalidateTag } from "next/cache";
+import { auth,signOut,signIn } from '@/auth';
+
 import ProductCard from "../components/ProductCard";
 
 
@@ -11,6 +13,10 @@ export default async function ProductDataById({ product_id }: { product_id: stri
 const data = await fetchProductById(product_id);
 console.log(data);
 //revalidateTag('products')
+const AuthUser = await auth();
+// if(AuthUser){
+
+// }
 return <>
    {/* <div className="flex flex-col  gap-4 "> */}
     {data.map(product =>{ 
@@ -33,7 +39,10 @@ return <>
                         <p className="text-xl">{product.title}</p>
                         <p>{product.description}</p>
                         <p>{product.price}</p>
-                        <div><Link href={`/handcraft/product_edit/${product.id}/product_edit`} className="underline">Edit </Link></div>
+                        {!AuthUser ?(
+                            <div><Link href={`/login`} className="underline">Edit </Link></div>
+                        ):
+                        (<div><Link href={`/handcraft/product_edit/${product.id}/product_edit`} className="underline">Edit </Link></div>)}
                         
                         <div><Form product_id={product.id}/></div>
                         
