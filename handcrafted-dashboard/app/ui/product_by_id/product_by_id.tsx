@@ -38,7 +38,7 @@ return <>
                     <div className="col-span-2">
                         <p className="text-xl">{product.title}</p>
                         <p>{product.description}</p>
-                        <p>{product.price}</p>
+                        <p>Price: ${product.price}</p>
                         {!AuthUser ?(
                             <div><Link href={`/login`} className="underline">Edit </Link></div>
                         ):
