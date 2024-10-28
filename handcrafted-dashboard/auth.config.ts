@@ -29,7 +29,7 @@ export const authConfig = {
        console.log(isLoggedIn);
        console.log('Next URL:', nextUrl);
       return Response.redirect(new URL('/', nextUrl) );
-      return true;
+      //return true;
 
       }
       return true;
