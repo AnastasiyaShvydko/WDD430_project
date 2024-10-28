@@ -44,9 +44,10 @@ return <>
                         ):
                         (<div><Link href={`/handcraft/product_edit/${product.id}/product_edit`} className="underline">Edit </Link></div>)}
                         
-                        <div><Form product_id={product.id}/></div>
+                        
                         
                     </div>
+                    <div><Form product_id={product.id}/></div>
                     
                     
                 </div>
