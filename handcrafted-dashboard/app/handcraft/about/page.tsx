@@ -40,12 +40,12 @@ export default function About() {
           <h2>Contact</h2>
           <p>
           If you have any questions or would like to collaborate with us, please contact us by e-mail at
-            <a href="mailto:contact@handcrafted.com">contact@handcrafted.com</a>.
+            <a href="mailto:contact@handcrafted.com"> contact@handcrafted.com</a>.
           </p>
         </section>
 
         <div className="imageContainer">
-          <img src="/public/hero-img.jpg" alt="hero-img" className="image" />
+          <img src="/hero-img.jpg" alt="hero-img" className="image" />
         </div>
       </div>
         </>
