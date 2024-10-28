@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 };
 export default async function LoginPage() {
   
- // const authUser = await auth();
-  //if (!authUser){
+ const authUser = await auth();
+  if (!authUser){
 
   return (
     <main className="flex items-center justify-center md:h-screen">
@@ -23,13 +23,13 @@ export default async function LoginPage() {
       </div>
     </main>
   );
-//}
-//else{
+}
+else{
 //  {signIn()}
-//  return (
- //   <h2>Welcome</h2>
+  return (
+  <h2>Welcome</h2>
     
-//  )
-//}
+  )
+}
 
 }
