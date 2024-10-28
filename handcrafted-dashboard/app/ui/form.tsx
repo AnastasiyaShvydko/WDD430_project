@@ -10,7 +10,7 @@ export default function Form({ product_id }: { product_id: string }){
     return(
    
     <form className="bg-white p-8 rounded-lg shadow-md w-96" action = {formAction} >
-        <h2 className="text-2xl font-semibold mb-6">Contact Us</h2>
+        <h2 className="text-2xl font-semibold mb-6">Write Review </h2>
         
 
         <div className="mb-4">
