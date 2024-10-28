@@ -28,7 +28,7 @@ export const authConfig = {
         console.log('case3')
        console.log(isLoggedIn);
        console.log('Next URL:', nextUrl);
-      return Response.redirect(new URL('/', nextUrl) );
+      return Response.redirect(new URL('/login', nextUrl) );
       //return true;
 
       }
