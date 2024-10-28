@@ -16,7 +16,7 @@ export const authConfig = {
       const isLoggedIn = !!auth?.user;
 
 
-      const isOnDashboard = nextUrl.pathname.startsWith('/handcraft/product_edit/:id/product_edit');
+      const isOnDashboard = nextUrl.pathname.startsWith('/handcraft/product_edit');
        if (isOnDashboard&&isLoggedIn) {
         console.log('case1')
           return true;}
@@ -28,8 +28,8 @@ export const authConfig = {
         console.log('case3')
        console.log(isLoggedIn);
        console.log('Next URL:', nextUrl);
-      return Response.redirect(new URL('/', nextUrl) );
-      //return true;
+      //return Response.redirect(new URL('/', nextUrl) );
+      return true;
 
       }
       return true;
