@@ -14,6 +14,8 @@ export const authConfig = {
 
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
+
+
       const isOnDashboard = nextUrl.pathname.startsWith('/handcraft/product_edit/:id/product_edit');
        if (isOnDashboard&&isLoggedIn) {
         console.log('case1')
@@ -28,6 +30,7 @@ export const authConfig = {
        console.log('Next URL:', nextUrl);
       //return Response.redirect(new URL(' ', nextUrl) );
       return true;
+
       }
       return true;
     },
@@ -39,17 +42,3 @@ export const authConfig = {
   providers: [], // Add providers with an empty array for now
 } satisfies NextAuthConfig;
 
-
-// callbacks: {
-//   authorized({ auth, request: { nextUrl } }) {
-//     const isLoggedIn = !!auth?.user;
-//     const isOnDashboard = nextUrl.pathname.startsWith('/dashboard');
-//     if (isOnDashboard) {
-//       if (isLoggedIn) return true;
-//       return false; // Redirect unauthenticated users to login page
-//     } else if (isLoggedIn) {
-//       return Response.redirect(new URL('/dashboard', nextUrl));
-//     }
-//     return true;
-//   },
-// },
