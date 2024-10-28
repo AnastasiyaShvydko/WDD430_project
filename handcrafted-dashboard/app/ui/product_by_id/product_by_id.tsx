@@ -24,7 +24,7 @@ return <>
         return (
             <>
            
-            <div key={product.id}  className="product-item" >
+            <div key={product.id}  className="flex flex-col justify-between items-center p-4 mb-4 bg-white rounded-lg border border-gray-300 shadow-sm transition-transform transition-shadow duration-300" >
                 
                     <div className="col-span-2">
                         <Image
@@ -44,9 +44,10 @@ return <>
                         ):
                         (<div><Link href={`/handcraft/product_edit/${product.id}/product_edit`} className="underline">Edit </Link></div>)}
                         
-                        <div><Form product_id={product.id}/></div>
+                        
                         
                     </div>
+                    <div><Form product_id={product.id}/></div>
                     
                     
                 </div>
