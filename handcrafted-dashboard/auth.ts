@@ -7,6 +7,8 @@ import type { User } from '@/app/lib/defenition';
 import bcrypt from 'bcrypt';
 
 
+
+
 async function getUser(email: string): Promise<User | undefined> {
   try {
     const user = await sql<User>`SELECT * FROM users WHERE email=${email}`;
@@ -20,6 +22,7 @@ export const { auth, signIn, signOut } = NextAuth({
   ...authConfig,
   providers: [
     Credentials({
+      
       async authorize(credentials) {
         const parsedCredentials = z
           .object({ email: z.string().email(), password: z.string().min(6) })

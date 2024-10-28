@@ -3,7 +3,7 @@ import { createReview,State } from '@/app/lib/action';
 import { useActionState } from 'react';
 
 export default function Form({ product_id }: { product_id: string }){
- const initialState: State = { message: null, errors: {} };
+ const initialState: State = { message: null, errors: {}  };
  const [state, formAction] = useActionState(createReview, initialState);
 
 
@@ -29,7 +29,7 @@ export default function Form({ product_id }: { product_id: string }){
             <input type="radio" id="twostars" name="rate" value="2" required/><label htmlFor="twostars"></label>
             <input type="radio" id="onestar" name="rate" value="1" required/><label htmlFor="onestar"></label>
         </div>
-      
+
         
 
         <div className="mb-4">

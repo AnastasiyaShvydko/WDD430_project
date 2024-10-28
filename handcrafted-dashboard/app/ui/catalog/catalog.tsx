@@ -34,7 +34,6 @@ return <>
                         <p className="text-xl">{category.title}</p>
 			            <p>{category.motto}</p>
                         <p>{category.description}</p>
-                        <p>{category.category_code}</p>
                         <div><Link href={`/handcraft/products_by_category/${category.category_code}/products_by_category`} className="underline">See Gallery</Link></div>
                         
                     </div>

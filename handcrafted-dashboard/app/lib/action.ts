@@ -11,10 +11,10 @@ import { AuthError } from 'next-auth';
 export type State = {
     errors?: {
       name?: string[];
-      email?: string[];
-      rate?: string[];
+      email?: string[] ;
+      rate?: string[] ;
       rate_message?: string[];
-      product_id?: string[];
+      product_id?: string[] ;
 };
     message?: string | null;
   };
@@ -45,7 +45,7 @@ export type State = {
 const CreateReview = FormSchema.omit({ id:true, date: true });
 
 
-export async function createReview(prevState: State, formData: FormData) {
+export async function createReview(prevState:  State , formData: FormData ) {
     // Validate form using Zod
    console.log(formData)
     const validatedFields = CreateReview.safeParse({
@@ -89,7 +89,6 @@ export async function createReview(prevState: State, formData: FormData) {
       // If a database error occurs, return a more specific error.
       return {
         message: 'Database Error: Failed to Create Invoice.',
-        error
       };
     }
    
