@@ -20,24 +20,30 @@ console.log(data);
 return <>
    {/* <div className="flex flex-col  gap-4 "> */}
     {data.map(review =>{ 
+        const reviewDate = new Date(review.date);
         
         return (
             <>
+
+            
            
-            <div key={review.id}  className="product-item" >
+            <div key={review.id}  className="max-w-sm rounded overflow-hidden shadow-lg bg-white" >
                 
-                    <div className="col-span-2">
+                    <div className="px-6 py-4">
                        
-                    </div>
+                    <div className="font-bold text-xl mb-2">{review.name}</div>
                     <div className="col-span-2">
-                        <p className="text-xl">{review.rate}</p>
-                        <p>{review.rate_message}</p>
-                        <p>{review.name}</p>
                         
+                      
                         
+                        <p className="text-gray-700 text-base">Rating: {'★'.repeat(review.rate)}{'☆'.repeat(5 - review.rate)}</p>
+                        <p className="text-gray-700 text-base mt-2">{review.rate_message}</p>
+                    </div>
+                    <div className="px-6 py-4">
+                        <span className="text-gray-600 text-sm">Posted on: {reviewDate.toLocaleDateString()}</span>
                     </div>
                     
-                    
+                    </div>
                 </div>
             </>
         )

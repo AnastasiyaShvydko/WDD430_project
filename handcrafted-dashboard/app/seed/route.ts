@@ -159,9 +159,9 @@ async function seedSellers() {
     // });
     try {
       await client.sql`BEGIN`;
-     // await seedSellers();
-      //await seedCatalog();
-      //await seedProducts();
+      await seedSellers();
+      await seedCatalog();
+      await seedProducts();
       //await seedUsers();
       //await CreateReviews()
       //await dropSellers();
