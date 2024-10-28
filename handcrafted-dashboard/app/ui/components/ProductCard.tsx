@@ -22,7 +22,7 @@ export default function ProductCard( { product }: { product: ProductByIdTable }
                         />
                     </div>
                     <div className="col-span-2">
-                        <p className="text-xl">{product.title}</p>
+                        <p className="font-bold text-xl mb-2">{product.title}</p>
                         <p>{product.description}</p>
                         <p>Price: ${product.price}</p>
                         <div><Link href={`/handcraft/product_by_id/${product.id}/product_by_id`} className="underline">Details</Link></div>
