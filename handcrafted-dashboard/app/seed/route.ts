@@ -134,6 +134,12 @@ async function seedSellers() {
     DROP TABLE catalog;`
   }
 
+  async function dropReviews() {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+    await client.sql`
+    DROP TABLE reviews;`
+  }
+
   // async function CreateReviews(){
 
   
@@ -159,9 +165,9 @@ async function seedSellers() {
     // });
     try {
       await client.sql`BEGIN`;
-      await seedSellers();
-      await seedCatalog();
-      await seedProducts();
+      //await seedSellers();
+      //await seedCatalog();
+      //await seedProducts();
       //await seedUsers();
       //await CreateReviews()
       //await dropSellers();
