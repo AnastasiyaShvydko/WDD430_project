@@ -28,7 +28,7 @@ export const authConfig = {
         console.log('case3')
        console.log(isLoggedIn);
        console.log('Next URL:', nextUrl);
-      return Response.redirect(new URL('/handcraft/product_edit/:id/product_edit', nextUrl) );
+      return Response.redirect(new URL('/', nextUrl) );
       //return true;
 
       }
