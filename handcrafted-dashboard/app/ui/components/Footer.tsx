@@ -11,7 +11,6 @@ export default function Footer(){
               <ul>
                 <li>Denis Poussard</li>
                 <li>Nomore Tawanda Zhanje</li>
-                <li>Alvaro Godoy</li>
                 <li>Anastasiia Shvydko</li>
               </ul>
             </div>
