@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 export default async function LoginPage() {
   
-  const authUser = await auth();
+ const authUser = await auth();
   if (!authUser){
 
   return (
@@ -25,9 +25,9 @@ export default async function LoginPage() {
   );
 }
 else{
-  {signIn()}
+//  {signIn()}
   return (
-    <h2>Welcome</h2>
+  <h2>Welcome</h2>
     
   )
 }
