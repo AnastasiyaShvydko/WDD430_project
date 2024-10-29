@@ -40,7 +40,7 @@ export default function About() {
           <h2>Contact</h2>
           <p>
           If you have any questions or would like to collaborate with us, please contact us by e-mail at
-            <a href="mailto:contact@handcrafted.com"> contact@handcrafted.com</a>.
+            <a className="text-blue-600 hover:text-blue-500" href="mailto:contact@handcrafted.com"> contact@handcrafted.com</a>.
           </p>
         </section>
 
