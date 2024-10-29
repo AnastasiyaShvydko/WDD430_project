@@ -25,7 +25,7 @@ return <>
                     </div>
                     <div className="col-span-2 justify-items-center">
                         <p className="text-xl">{seller.name}</p>
-                        <p className="pt-5 pb-5" >{seller.description}</p>
+                        <p className="lg:pt-5 lg:pb-5 pl-5 pr-5" >{seller.description}</p>
                         <div className="pt-5 pb-5"><Link href={`/handcraft/products_by_seller/${seller.seller_code}/products_by_seller`} className="underline">See gallery</Link></div>
                         
                     </div>
