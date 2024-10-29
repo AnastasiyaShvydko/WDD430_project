@@ -8,7 +8,7 @@ export default function Footer(){
           <div className="grid grid-cols-2">
             <div className="flex flex-col p-14 ">
               <p>&copy; 2024 Group 6</p>
-              <ul>
+              <ul className="my-5">
                 <li>Denis Poussard</li>
                 <li>Nomore Tawanda Zhanje</li>
                 <li>Anastasiia Shvydko</li>

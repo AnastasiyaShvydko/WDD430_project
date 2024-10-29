@@ -40,33 +40,32 @@
   }
   
   /* Bulleted lists */
-  ul {
+  /* ul {
     margin: 20px 0;
     padding-left: 40px;
     list-style: disc;
-  }
+  } */
   
   li {
+    text-decoration: none;
     margin-bottom: 10px;
     font-size: 1rem;
-    /*color: #666;*/
   }
   
   /* Links */
   a {
-    /*color: #0070f3;*/
     text-decoration: none;
     font-weight: bold;
   }
   
-  a:hover {
+  /* a:hover {
     text-decoration: underline;
-  }
+  } */
   
   /* Specific paragraph styles */
-  p {
+  /* p {
     margin-bottom: 20px;
-  }
+  } */
   
   /* Image styles */
   .imageContainer {

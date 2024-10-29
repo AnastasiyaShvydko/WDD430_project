@@ -19,9 +19,9 @@ return <>
         console.log(category.image_url)
         return (
             <>
-            <div key={category.id}  className=" bg-indigo-200  h-[150] w-screen grid grid-cols-4 gap-4 items-center" >
+            <div key={category.id}  className=" bg-indigo-200  h-[150] w-screen lg:grid lg:grid-cols-4 gap-4 items-center flex flex-col" >
                 
-                    <div className="col-span-2 ">
+                    <div className="col-span-2 justify-items-center ">
                         <Image
                             src={category.image_url}
                             alt={`${category.title}'s catalog picture`}
@@ -30,11 +30,11 @@ return <>
                             height={100} 
                         />
                     </div>
-                    <div className="col-span-2">
+                    <div className="col-span-2 justify-items-center">
                         <p className="text-xl">{category.title}</p>
 			            <p>{category.motto}</p>
-                        <p>{category.description}</p>
-                        <div><Link href={`/handcraft/products_by_category/${category.category_code}/products_by_category`} className="underline">See Gallery</Link></div>
+                        <p className="p-5">{category.description}</p>
+                        <div className="p-5"><Link href={`/handcraft/products_by_category/${category.category_code}/products_by_category`} className="underline">See Gallery</Link></div>
                         
                     </div>
                     

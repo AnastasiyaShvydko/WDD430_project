@@ -30,7 +30,7 @@ export default function About() {
           </p>
 
           <h2>Our Core Values</h2>
-          <ul>
+          <ul className="my-5 pl-10 list-disc">
             <li>Quality and authenticity</li>
             <li>Local, ethical craftsmanship</li>
             <li>Environmentally-friendly products</li>

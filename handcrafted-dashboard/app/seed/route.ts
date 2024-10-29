@@ -140,23 +140,23 @@ async function seedSellers() {
     DROP TABLE reviews;`
   }
 
-  // async function CreateReviews(){
+  async function CreateReviews(){
 
   
-  // await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+  await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
 
-  //   await client.sql`
-  //     CREATE TABLE IF NOT EXISTS reviews (
-  //       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-  //       name VARCHAR(255) NOT NULL,
-  //       email VARCHAR(255) NOT NULL,
-  //       rate INT NOT NULL,
-  //       rate_message TEXT NOT NULL,
-  //       product_id VARCHAR(255) NOT NULL,
-  //       date DATE NOT NULL
-  //     );
-  //   `;
-  // }
+    await client.sql`
+      CREATE TABLE IF NOT EXISTS reviews (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL,
+        rate INT NOT NULL,
+        rate_message TEXT NOT NULL,
+        product_id VARCHAR(255) NOT NULL,
+        date DATE NOT NULL
+      );
+    `;
+  }
 
   export async function GET() {
     // return Response.json({
@@ -173,6 +173,7 @@ async function seedSellers() {
       //await dropSellers();
       //await dropProducts();
       //await dropCatalog();
+      //await dropReviews()
       await client.sql`COMMIT`;
   
       return Response.json({ message: 'Database seeded successfully' });
