@@ -49,12 +49,12 @@
   li {
     margin-bottom: 10px;
     font-size: 1rem;
-    color: #666;
+    /*color: #666;*/
   }
   
   /* Links */
   a {
-    color: #0070f3;
+    /*color: #0070f3;*/
     text-decoration: none;
     font-weight: bold;
   }
