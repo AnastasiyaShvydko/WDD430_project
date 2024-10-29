@@ -26,8 +26,15 @@ export default async function LoginPage() {
 }
 else{
 //  {signIn()}
-  return (
-  <h2>Welcome</h2>
+  return ( 
+  <>
+  <div className="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div className="bg-white rounded-lg shadow-lg p-8 w-96 text-center">
+        <h1 className="text-3xl font-bold mb-4">Welcome, {authUser.user?.name} !</h1>
+        <p className="text-gray-700 mb-6">We're glad to have you here. Explore our features and enjoy your experience!</p>
+    </div>
+  </div>
+  </>
     
   )
 }

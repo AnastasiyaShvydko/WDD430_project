@@ -170,3 +170,33 @@ input[type="radio"] {
     color: #999;
 }
 
+/* Responsiveness for middle screens */@media (max-width: 768px) {     .search-bar {
+    max-width: 100%;
+    padding: 8px;
+}    
+
+.search-input { 
+   width: 120px;
+    font-size: 14px;
+}     
+.search-button {
+    font-size: 14px;         
+padding: 6px 12px;
+} 
+}
+
+/* Responsiveness for small screens */
+@media (max-width: 480px) { 
+.search-bar {
+    flex-direction: column;
+    gap: 8px;
+}
+.search-input {
+    width: 100%; 
+    font-size: 14px; } 
+.search-button { 
+    width: 100%; 
+    font-size: 14px; 
+    padding: 8px; 
+}
+}

@@ -12,9 +12,9 @@ return <>
     {data.map(seller =>{ 
         return (
             <>
-            <div key={seller.id}  className=" bg-indigo-200  h-[350px] w-screen grid grid-cols-4 gap-4 items-center" >
+            <div key={seller.id}  className=" bg-indigo-200  h-[150] w-screen lg:grid lg:grid-cols-4 gap-4 items-center flex flex-col" >
                 
-                    <div className="col-span-2">
+                    <div className="col-span-2 justify-items-center">
                         <Image
                             src={seller.image_url}
                             alt={`${seller.name}'s profile picture`}
@@ -23,10 +23,10 @@ return <>
                             height={300} 
                         />
                     </div>
-                    <div className="col-span-2">
+                    <div className="col-span-2 justify-items-center">
                         <p className="text-xl">{seller.name}</p>
-                        <p>{seller.description}</p>
-                        <div><Link href={`/handcraft/products_by_seller/${seller.seller_code}/products_by_seller`} className="underline">See gallery</Link></div>
+                        <p className="p-5" >{seller.description}</p>
+                        <div className="p-5"><Link href={`/handcraft/products_by_seller/${seller.seller_code}/products_by_seller`} className="underline">See gallery</Link></div>
                         
                     </div>
                     
