@@ -22,14 +22,7 @@ export default function Form({ product_id }: { product_id: string }){
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
             <input type="email" id="email" name="email" required className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Your Email"/>
         </div>
-        <div id="customer-error" aria-live="polite" aria-atomic="true">
-        {state.errors?.name &&
-          state.errors.name.map((error: string) => (
-            <p className="mt-2 text-sm text-red-500" key={error}>
-              {error}
-            </p>
-          ))}
-      </div>
+    
 
 
         <div className="rate">
