@@ -33,7 +33,7 @@ return <>
                     <div className="col-span-2 justify-items-center">
                         <p className="text-xl">{category.title}</p>
 			            <p>{category.motto}</p>
-                        <p className="pt-5 pb-5 sm:pl-8">{category.description}</p>
+                        <p className="pt-5 pb-5 sm:pr-8">{category.description}</p>
                         <div className="pt-5 pb-5"><Link href={`/handcraft/products_by_category/${category.category_code}/products_by_category`} className="underline">See Gallery</Link></div>
                         
                     </div>
